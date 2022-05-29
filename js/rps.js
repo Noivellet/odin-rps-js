@@ -1,3 +1,5 @@
+
+
 //Get input from player 
 function getInput() {
   while (true) {
@@ -18,9 +20,7 @@ function getInput() {
     }
   }
 }
-//Verify that input is a string and is R, P or S
-//if not, then get input again
-//if yes, then store in a variable
+
 //Generate a random RPS figure
 function randomRPS() {
   let random = Math.floor(Math.random() * 3);
@@ -35,5 +35,24 @@ function randomRPS() {
       break;
   }
 }
-//Compare player input and generated figure to determine who won
+
+//Compare player input and generated figure to determine who won and return the results as a string
+function playRound(playerFig, computerFig) {
+  let figuresUsed = `(Your ${playerFig} vs. computer's ${computerFig})`
+  let winMsg = "You won! " + figuresUsed
+  let loseMsg = "You lost! " + figuresUsed
+  
+  if (playerFig === computerFig) return "It's a tie! " + figuresUsed
+
+  switch (playerFig) {
+    case "Rock":
+      return (computerFig === "Paper") ? loseMsg : winMsg;
+    case "Paper":
+      return (computerFig === "Scissors") ? loseMsg : winMsg;
+    case "Scissors":
+      return (computerFig === "Rock") ? loseMsg : winMsg;
+    default:
+      return false; //should actually throw an error
+  }
+}
 //Return the result to player and start a new game
