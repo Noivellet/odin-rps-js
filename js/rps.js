@@ -1,4 +1,9 @@
-
+//Main function to start playing
+function game() {
+  for (let x = 0; x < 5; x++) {
+    console.log(playRound(getInput(), randomRPS()));
+  }
+}
 
 //Get input from player 
 function getInput() {
@@ -55,4 +60,3 @@ function playRound(playerFig, computerFig) {
       return false; //should actually throw an error
   }
 }
-//Return the result to player and start a new game
